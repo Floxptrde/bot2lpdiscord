@@ -7,10 +7,11 @@ module.exports = {
             let roleid = Object.values(role.filter({name: rname.name}).find("id").value())[0];
             let roleprice = Object.values(role.filter({name: rname.name}).find("price").value())[2];
             let rolelevel = Object.values(role.filter({name: rname.name}).find("level").value())[3];
-            let levelactuel = 0;
+            let levelactuel;
             for(const r of role) {
                 if(message.member.roles.cache.has(r.id)) {
-                    if(r.level > levelactuel) {
+                    let levelactuel = r.level;
+                    if(r.level >= levelactuel) {
                         levelactuel = r.level;
                     }
                 } else {
