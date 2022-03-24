@@ -14,6 +14,149 @@
     }
   ],
   "Roles_Boutique": [
-    
+    {
+      "id" : "949015826109968384",
+      "name": "Découvre 2LP",
+      "price": 25,
+      "level": 1
+    },
+    {
+      "id" : "820306713923026945",
+      "name": "Apprenti Trader",
+      "price": 25,
+      "level": 1
+    },
+    {
+      "id" : "948985055856984086",
+      "name": "Crypto Débutant",
+      "price": 25,
+      "level": 1
+    },
+    {
+      "id" : "948994637228544002",
+      "name": "Apprenti Actionnaire",
+      "price": 25,
+      "level": 1
+    },
+    {
+      "id" : "948988764288614410",
+      "name": "Explore 2LP",
+      "price": 75,
+      "level": 2
+    },
+    {
+      "id" : "820307146678730762",
+      "name": "Trader Amateur",
+      "price": 75,
+      "level": 2
+    },
+    {
+      "id" : "948985193010720878",
+      "name": "Amateur de Crypto",
+      "price": 75,
+      "level": 2
+    },
+    {
+      "id" : "948995809066766356",
+      "name": "Actionnaire Amateur",
+      "price": 75,
+      "level": 2
+    },
+    {
+      "id" : "",
+      "name": "Débutant 2LP",
+      "price": 225,
+      "level": 3
+    },
+    {
+      "id" : "",
+      "name": "Trader Intermédiaire",
+      "price": 225,
+      "level": 3
+    },
+    {
+      "id" : "",
+      "name": "Intermédiaire en Crypto",
+      "price": 225,
+      "level": 3
+    },
+    {
+      "id" : "",
+      "name": "Actionnaire Intermédiaire",
+      "price": 225,
+      "level": 3
+    },
+    {
+      "id" : "",
+      "name": "Amateur de 2LP",
+      "price": 338,
+      "level": 4
+    },
+    {
+      "id" : "",
+      "name": "Amateur de Trading",
+      "price": 338,
+      "level": 4
+    },
+    {
+      "id" : "",
+      "name": "Expérimenté en Crypto",
+      "price": 338,
+      "level": 4
+    },
+    {
+      "id" : "",
+      "name": "Actionnaire Expérimenté",
+      "price": 338,
+      "level": 4
+    },
+    {
+      "id" : "",
+      "name": "2LP Enthousiaste",
+      "price": 506,
+      "level": 5
+    },
+    {
+      "id" : "",
+      "name": "Trader Expérimenté",
+      "price": 506,
+      "level": 5
+    },
+    {
+      "id" : "",
+      "name": "Crypto fan",
+      "price": 506,
+      "level": 5
+    },
+    {
+      "id" : "",
+      "name": "Actionnaire Pro",
+      "price": 506,
+      "level": 5
+    },
+    {
+      "id" : "",
+      "name": "Connaisseur 2LP",
+      "price": 759,
+      "level": 6
+    },
+    {
+      "id" : "",
+      "name": "Trader Pro",
+      "price": 759,
+      "level": 6
+    },
+    {
+      "id" : "",
+      "name": "Crypto Enthousiaste",
+      "price": 759,
+      "level": 6
+    },
+    {
+      "id" : "",
+      "name": "Dividendes Loveur",
+      "price": 759,
+      "level": 6
+    }
   ]
 }
