@@ -11,8 +11,8 @@ module.exports = {
             if(!roleBase.find({id: r.id}).value()){
                 roleBase.push({id: r.id, name: r.name, price: parseInt(value[2]), level: parseInt(value[2])}).write();
             } else {
+                roleBase.assign({id: r.id, name: r.name, price: parseInt(value[2]), level: parseInt(value[3])}).write(); 
                 message.reply('Ce rôle existe déjà dans la boutique, il va être modifié');
-                roleBase.assign({id: r.id, name: r.name, price: parseInt(value[2]), level: parseInt(value[3])}).write();
             }
         });
     }
