@@ -7,10 +7,13 @@ module.exports = {
         message.mentions.users.map(user => {
             let userCoins = Object.values(coin.filter({id: user.id}).find('coins').value())[1];
             let donnateurCoins = Object.values(coin.filter({id: message.author.id}).find('coins').value())[1];
-
-            coin.find({id: user.id}).assign({id: user.id, coins: userCoins += parseInt(value[2])}).write();
-            coin.find({id: message.author.id}).assign({id: message.author.id, coins: donnateurCoins -= parseInt(value[2])}).write();
-        });
-        
+            if(donnateurCoins >= parseInt(value[2])) {
+                coin.find({id: user.id}).assign({id: user.id, coins: userCoins += parseInt(value[2])}).write();
+                coin.find({id: message.author.id}).assign({id: message.author.id, coins: donnateurCoins -= parseInt(value[2])}).write();
+                message.reply('votre transaction est un succès');
+            } else {
+                message.reply('vous n\'avez pas assez');
+            }
+        });  
     }
 }
