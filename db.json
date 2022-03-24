@@ -1,0 +1,48 @@
+{
+  "Infos_membres": [
+    {
+      "id": "953981215407501363",
+      "coins": 330
+    },
+    {
+      "id": "464851546434306078",
+      "coins": 663
+    },
+    {
+      "id": "520209690106527744",
+      "coins": 326
+    }
+  ],
+  "Roles_Boutique": [
+    {
+      "id": "948994637228544002",
+      "name": "Apprenti Actionnaire",
+      "price": 75
+    },
+    {
+      "id": "948995809066766356",
+      "name": "Actionnaire Amateur",
+      "price": 125
+    },
+    {
+      "id": "948996184746393661",
+      "name": "Actionnaire Intermédiaire",
+      "price": 175
+    },
+    {
+      "id": "820306713923026945",
+      "name": "Apprenti trader",
+      "price": 75
+    },
+    {
+      "id": "948985055856984086",
+      "name": "Crypto débutant",
+      "price": 75
+    },
+    {
+      "id": "948985055856984086",
+      "name": "Crypto débutant",
+      "price": 25
+    }
+  ]
+}
