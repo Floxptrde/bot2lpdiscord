@@ -80,6 +80,7 @@ client.on('message', async message => {
 
 client.on('messageReactionAdd', async (reaction, user) => {
     try {
+        if(!reaction.message.author.bot) return;
         if(!reaction.message.channel.id === '798979843864657920') return;
 
         var member = reaction.message.guild.members.cache.find(member => member.id === user.id);

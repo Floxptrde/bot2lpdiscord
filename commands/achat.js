@@ -22,12 +22,12 @@ module.exports = {
 
             if(coinValue >= roleprice && rolelevel == levelactuel +1) {
                 message.member.roles.add(roleid);
-                //console.log(coin);
                 coinValue -= roleprice;
                 botCoinValue += roleprice;
-                coin.find({id: message.author.id}).assign({id: message.author.id, coins: coinValue}).write()
-                coin.find({id: "953981215407501363"}).assign({id: "953981215407501363", coins: botCoinValue}).write()
-                //console.log(coin);
+                coin.find({id: message.author.id}).assign({id: message.author.id, coins: coinValue}).write();
+                coin.find({id: "953981215407501363"}).assign({id: "953981215407501363", coins: botCoinValue}).write();
+                message.reply('Achat réussi');
+
             }
         });
     }
