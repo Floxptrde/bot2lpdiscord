@@ -6,22 +6,10 @@ module.exports = {
             //console.log(rname.name);
             let roleid = Object.values(role.filter({name: rname.name}).find("id").value())[0];
             let roleprice = Object.values(role.filter({name: rname.name}).find("price").value())[2];
-            let rolelevel = Object.values(role.filter({name: rname.name}).find("level").value())[3];
-            let levelactuel;
-            for(const r of role) {
-                if(message.member.roles.cache.has(r.id)) {
-                    let levelactuel = r.level;
-                    if(r.level >= levelactuel) {
-                        levelactuel = r.level;
-                    }
-                } else {
-                    levelactuel = 0;
-                }
-            }
             let coinValue = Object.values(coin.filter({id: message.author.id}).find('coins').value())[1];
             let botCoinValue = Object.values(coin.filter({id: "953981215407501363"}).find('coins').value())[1];
 
-            if(coinValue >= roleprice && rolelevel == levelactuel +1) {
+            if(coinValue >= roleprice) {
                 message.member.roles.add(roleid);
                 coinValue -= roleprice;
                 botCoinValue += roleprice;

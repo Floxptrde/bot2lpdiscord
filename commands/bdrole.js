@@ -12,7 +12,7 @@ module.exports = {
                 roleBase.push({id: r.id, name: r.name, price: parseInt(value[2]), level: parseInt(value[2])}).write();
             } else {
                 message.reply('Ce rôle existe déjà dans la boutique, il va être modifié');
-                roleBase.push({id: r.id, name: r.name, price: parseInt(value[2])}).write();
+                roleBase.assign({id: r.id, name: r.name, price: parseInt(value[2])}).write();
             }
         });
     }
