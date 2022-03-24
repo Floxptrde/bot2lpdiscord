@@ -40,6 +40,8 @@ Quelques infos :
 Nous espérons que ce serveur vous apportera beaucoup financièrement ou en termes de connaissances. Contactez-nous si vous avez le moindre souci ou des suggestions 😉
 
 Notre ambition est de rendre un maximum de personne libres financièrement. Si c’est votre but, bienvenue sur ce serveur 😎 
+
+_Avant de choisir vos rôles vos devez accepter les termes de ce message en cliquant sur la réaction 2LP_
         `)
     }
 };
