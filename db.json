@@ -61,6 +61,30 @@
       "name": "Actionnaire Amateur",
       "price": 75,
       "level": 2
+    },
+    {
+      "id": "948989909492989972",
+      "name": "Débutant 2LP",
+      "price": 225,
+      "level": 3
+    },
+    {
+      "id": "820307921988485130",
+      "name": "Trader Intermédiaire",
+      "price": 225,
+      "level": 3
+    },
+    {
+      "id": "948985313718595654",
+      "name": "Intermédaire en Crypto",
+      "price": 225,
+      "level": 3
+    },
+    {
+      "id": "948996534173847602",
+      "name": "Actionnaire Expérimenté",
+      "price": 225,
+      "level": 3
     }
   ]
 }
