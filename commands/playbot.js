@@ -23,8 +23,8 @@ module.exports = {
                 message.reply(`Essayez encore\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos pertes s'élevent à ${perte} 2LPCoins`);
             }
 
-            coinValue = coinValue + gain - perte ;
-            botCoinValue = botCoinValue - gain + perte;
+            coinValue += (gain - perte) ;
+            botCoinValue -= (gain + perte);
 
             coin.find({id: message.author.id}).assign({id: message.author.id, coins: coinValue}).write();
             coin.find({id: "953981215407501363"}).assign({id: "953981215407501363", coins: botCoinValue}).write();
