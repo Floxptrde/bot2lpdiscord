@@ -19,6 +19,24 @@
       "name": "Découvre 2LP",
       "price": 25,
       "level": 1
+    },
+    {
+      "id": "820306713923026945",
+      "name": "Apprenti Trader",
+      "price": 25,
+      "level": 1
+    },
+    {
+      "id": "948985055856984086",
+      "name": "Crypto Débutant",
+      "price": 25,
+      "level": 1
+    },
+    {
+      "id": "948994637228544002",
+      "name": "Apprenti Actionnaire",
+      "price": 25,
+      "level": 1
     }
   ]
 }
