@@ -12,12 +12,12 @@ module.exports = {
             let nombre = randomInt(10);
             let gain = 0;
 
-            if(nombre == parseInt(value[1])) {
+            if(nombre == parseInt(value[2])) {
                 gain = 10*nombre;
-                message.reply(`bien joué\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos gains s'élevent à ${gain} 2LPCoins`);
+                //message.reply(`bien joué\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos gains s'élevent à ${gain} 2LPCoins`);
             } else {
                 gain = nombre*2+1;
-                message.reply(`Essayez encore\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos pertes s'élevent à ${gain} 2LPCoins`);
+                //message.reply(`Essayez encore\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos pertes s'élevent à ${gain} 2LPCoins`);
             }
 
             coinValue += gain ;
