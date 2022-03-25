@@ -7,17 +7,18 @@ module.exports = {
 
         let coinValue = Object.values(coin.filter({id: message.author.id}).find('coins').value())[1];
         let botCoinValue = Object.values(coin.filter({id: "953981215407501363"}).find('coins').value())[1];
+        let tab = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
         if(coinValue >= 21 && botCoinValue >= 100) {
-            var nombre = randomInt(5);
+            var nombre = randomInt(10);
             let gain = 0;
 
             if(nombre == parseInt(value[1])) {
-                gain = 10*nombre;
-                message.reply(`bien joué\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos gains s'élevent à ${gain} 2LPCoins`);
+                gain = 10*tab[nombre];
+                message.reply(`bien joué\nle nombre a deviné était ${tab[nombre]}, vous avez joué ${parseInt(value[1])}\nvos gains s'élevent à ${gain} 2LPCoins`);
             } else {
-                gain = nombre*2+1;
-                message.reply(`Essayez encore\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos pertes s'élevent à ${gain} 2LPCoins`);
+                gain = tab[nombre]*2+1;
+                message.reply(`Essayez encore\nle nombre a deviné était ${tab[nombre]}, vous avez joué ${parseInt(value[1])}\nvos pertes s'élevent à ${gain} 2LPCoins`);
             }
 
             coinValue += gain ;
