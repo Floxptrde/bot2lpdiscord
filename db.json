@@ -37,6 +37,30 @@
       "name": "Apprenti Actionnaire",
       "price": 25,
       "level": 1
+    },
+    {
+      "id": "948988764288614410",
+      "name": "Explore 2LP",
+      "price": 75,
+      "level": 2
+    },
+    {
+      "id": "820307146678730762",
+      "name": "Trader Amateur",
+      "price": 75,
+      "level": 2
+    },
+    {
+      "id": "948985193010720878",
+      "name": "Amateur de Crypto",
+      "price": 75,
+      "level": 2
+    },
+    {
+      "id": "948995809066766356",
+      "name": "Actionnaire Amateur",
+      "price": 75,
+      "level": 2
     }
   ]
 }
