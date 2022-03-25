@@ -9,7 +9,7 @@ module.exports = {
         let botCoinValue = Object.values(coin.filter({id: "953981215407501363"}).find('coins').value())[1];
 
         if(coinValue >= 21 && botCoinValue >= 100) {
-            let nombre = randomInt(10);
+            let nombre = 1;
             let gain = 0;
 
             if(nombre == parseInt(value[2])) {
