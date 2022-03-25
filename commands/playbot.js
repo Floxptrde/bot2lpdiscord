@@ -20,7 +20,7 @@ module.exports = {
             } else {
                 perte = nombre*2+1;
                 gain = 0;
-                message.reply(`Essayez encore\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos pertes s'élevent à ${pertes} 2LPCoins`);
+                message.reply(`Essayez encore\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos pertes s'élevent à ${perte} 2LPCoins`);
             }
 
             coinValue = coinValue + gain - perte ;
