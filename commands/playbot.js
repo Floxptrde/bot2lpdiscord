@@ -11,20 +11,17 @@ module.exports = {
         if(coinValue >= 21 && botCoinValue >= 100) {
             let nombre = randomInt(10);
             let gain = 0;
-            let perte = 0;
 
             if(nombre == parseInt(value[1])) {
                 gain = 10*nombre;
-                perte = 0;
                 message.reply(`bien joué\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos gains s'élevent à ${gain} 2LPCoins`);
             } else {
-                perte = nombre*2+1;
-                gain = 0;
-                message.reply(`Essayez encore\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos pertes s'élevent à ${perte} 2LPCoins`);
+                gain = nombre*2+1;
+                message.reply(`Essayez encore\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos pertes s'élevent à ${gain} 2LPCoins`);
             }
 
-            coinValue += (gain - perte) ;
-            botCoinValue -= (gain + perte);
+            coinValue += gain ;
+            botCoinValue -= gain;
 
             coin.find({id: message.author.id}).assign({id: message.author.id, coins: coinValue}).write();
             coin.find({id: "953981215407501363"}).assign({id: "953981215407501363", coins: botCoinValue}).write();
