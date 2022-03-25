@@ -14,6 +14,11 @@
     }
   ],
   "Roles_Boutique": [
-    
+    {
+      "id": "949015826109968384",
+      "name": "Découvre 2LP",
+      "price": 25,
+      "level": 1
+    }
   ]
 }
