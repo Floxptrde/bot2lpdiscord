@@ -12,7 +12,7 @@ module.exports = {
             let nombre = 1;
             let gain = 0;
 
-            if(nombre == parseInt(value[2])) {
+            if(nombre == parseInt(value[1])) {
                 gain = 10*nombre;
                 message.reply(`bien joué\nle nombre a deviné était ${nombre}, vous avez joué ${parseInt(value[1])}\nvos gains s'élevent à ${gain} 2LPCoins`);
             } else {
