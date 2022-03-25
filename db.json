@@ -6,11 +6,11 @@
     },
     {
       "id": "464851546434306078",
-      "coins": 663
+      "coins": 500
     },
     {
       "id": "520209690106527744",
-      "coins": 326
+      "coins": 500
     }
   ],
   "Roles_Boutique": [
@@ -85,6 +85,30 @@
       "name": "Actionnaire Expérimenté",
       "price": 225,
       "level": 3
+    },
+    {
+      "id": "948990052380319804",
+      "name": "Amateur de 2LP",
+      "price": 338,
+      "level": 4
+    },
+    {
+      "id": "820308371927990342",
+      "name": "Amateur de Trading",
+      "price": 338,
+      "level": 4
+    },
+    {
+      "id": "948985319724838942",
+      "name": "Expérimenté en Crypto",
+      "price": 338,
+      "level": 4
+    },
+    {
+      "id": "948996534173847602",
+      "name": "Actionnaire Expérimenté",
+      "price": 338,
+      "level": 4
     }
   ]
 }
