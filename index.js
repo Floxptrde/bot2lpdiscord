@@ -73,7 +73,7 @@ client.on('message', async message => {
         if(!dbmember.get("Infos_membres").find({id: msgAuthorId}).value()){
             dbmember.get("Infos_membres").push({id: msgAuthorId, coins: 1}).write();
         } else {
-            let memberCoinsDb = db.get('Infos_membres').filter({id: msgAuthorId}).find('coins').value();
+            let memberCoinsDb = dbmember.get('Infos_membres').filter({id: msgAuthorId}).find('coins').value();
             let memberCoins = Object.values(memberCoinsDb);
             let coinsWin = randomInt(4) +1;
             dbmember.get('Infos_membres').find({id: msgAuthorId}).assign({id: msgAuthorId, coins: memberCoins[1] += coinsWin}).write();
