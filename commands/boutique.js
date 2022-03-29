@@ -16,6 +16,10 @@ module.exports = {
                         exampleEmbed.addFields(
                             { name: `Role : `, value: `**👉${r.name}**` }
                         );
+                    } else {
+                        exampleEmbed.addFields(
+                            { name: `Role : `, value: `Passé` }
+                        );
                     }
                 }
             }
