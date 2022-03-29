@@ -18,7 +18,7 @@ const dbdb = new FileSync('dbmember.json');
 const dbdb2 = new FileSync('dbrole.json');
 // BD Lowdb
 const dbmember = low(dbdb);
-const dbrole = low(dbdb);
+const dbrole = low(dbdb2);
 dbmember.defaults({Infos_membres: []}).write();
 dbrole.defaults({Roles_Boutique: []}).write();
 
