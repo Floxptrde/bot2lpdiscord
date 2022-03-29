@@ -12,10 +12,11 @@ module.exports = {
                     { name: `Price`, value: `**${price}** 2LPCoins` }
                 );
                 for(const r of role) {
-                    if(!r.price == price) return;
-                    exampleEmbed.addFields(
-                        { name: `👉${r.name}`, value: `**${r.price}** 2LPCoins` }
-                    );
+                    if(r.price == price) {
+                        exampleEmbed.addFields(
+                            { name: `👉${r.name}`, value: `**${r.price}** 2LPCoins` }
+                        );
+                    }
                 }
             }
         exampleEmbed.setTimestamp();
