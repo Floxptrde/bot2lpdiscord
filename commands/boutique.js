@@ -11,7 +11,7 @@ module.exports = {
                 exampleEmbed.addFields(
                     { name: `Price :`, value: `**${price}** 2LPCoins` }
                 );
-                for(const r of role) {
+                for(let r of role) {
                     if(r.price == price) {
                         exampleEmbed.addFields(
                             { name: `Role : `, value: `**👉${r.name}**` }
