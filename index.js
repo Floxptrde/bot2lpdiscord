@@ -158,7 +158,7 @@ client.on('guildMemberAdd', async member => {
      
         context.font = "35px sans-serif";
 		context.fillStyle = '#FFFFFF';
-		context.fillText(`\n${Object.values(dbphrase.get("Phrases").filter({id: client.user.id}).find('phrase').value())[msg]}`, 50, canvas.height / 1.3);
+		context.fillText(`\n${Object.values(dbphrase.get("Phrases").find('phrase').value())[msg]}`, 50, canvas.height / 1.3);
 		
         context.beginPath();
 		context.arc(458, 150, 125, 0, Math.PI * 2, true); 
