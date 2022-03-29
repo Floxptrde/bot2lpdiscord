@@ -5,23 +5,26 @@ const { Client, Intents, MessageAttachment, MessageEmbed } = require('discord.js
 const Canvas = require('canvas');
 // Create an instance of a Discord client
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS", "GUILD_MESSAGE_REACTIONS"] });
+// Commandes
 client.commands = new Discord.Collection();
 const commandfiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
-const {prefix, token} = require('./config.json');
+// Imports
+const {prefix, token, ChanWelcome, ChanRegles} = require('./config.json');
 const { randomInt } = require('crypto');
 // Lowdb
 const low = require("lowdb");
 const FileSync = require('lowdb/adapters/FileSync');
 const dbdb = new FileSync('db.json');
 // BD Lowdb
-const db = low(dbdb);
-db.defaults({Infos_membres: []}).write();
-db.defaults({Roles_Boutique: []}).write();
+const dbmember = low(dbdb);
+const dbrole = low(dbdb);
+dbmember.defaults({Infos_membres: []}).write();
+dbrole.defaults({Roles_Boutique: []}).write();
 
 // Initialisation du bot
 client.once('ready', async () => {
-    if(!db.get("Infos_membres").find({id: client.user.id}).value()){
-        db.get("Infos_membres").push({id: client.user.id, coins: 330}).write();
+    if(!dbmember.get("Infos_membres").find({id: client.user.id}).value()){
+        dbmember.get("Infos_membres").push({id: client.user.id, coins: 330}).write();
     } 
     console.log('I am ready!');
 });
@@ -41,9 +44,9 @@ client.on('message', async message => {
     if(!client.commands.has(command)) return;
 
     try {
-        let coin = db.get('Infos_membres');
-        let roleBase = db.get('Roles_Boutique');
-        client.commands.get(command).execute(message, client, coin, roleBase, MessageEmbed);
+        let coin = dbmember.get('Infos_membres');
+        let roleBase = dbrole.get('Roles_Boutique');
+        client.commands.get(command).execute(message, client, coin, roleBase, MessageEmbed, ChanWelcome, ChanRegles);
     } catch (error) {
         console.error(error);
         message.reply("une erreur s'est produite");
@@ -51,9 +54,9 @@ client.on('message', async message => {
 });
 
 client.on('message', async message => {
-    if(message.author.bot && message.channelId == '791198800327999493') {
+    if(message.author.bot && message.channelId == `${ChanWelcome}`) {
         message.react('821074887191953439');
-    } else if (message.author.bot && message.channelId == '798979843864657920') {
+    } else if (message.author.bot && message.channelId == `${ChanRegles}`) {
         message.react('821074887191953439');
         message.react('💰');
         message.react('💎');
@@ -66,13 +69,13 @@ client.on('message', async message => {
     try {
         if(message.author.bot) return;
         let msgAuthorId = message.author.id;
-        if(!db.get("Infos_membres").find({id: msgAuthorId}).value()){
-            db.get("Infos_membres").push({id: msgAuthorId, coins: 1}).write();
+        if(!dbmember.get("Infos_membres").find({id: msgAuthorId}).value()){
+            dbmember.get("Infos_membres").push({id: msgAuthorId, coins: 1}).write();
         } else {
             let memberCoinsDb = db.get('Infos_membres').filter({id: msgAuthorId}).find('coins').value();
             let memberCoins = Object.values(memberCoinsDb);
             let coinsWin = randomInt(4) +1;
-            db.get('Infos_membres').find({id: msgAuthorId}).assign({id: msgAuthorId, coins: memberCoins[1] += coinsWin}).write();
+            dbmember.get('Infos_membres').find({id: msgAuthorId}).assign({id: msgAuthorId, coins: memberCoins[1] += coinsWin}).write();
         }
 
     } catch (error) {
@@ -165,7 +168,7 @@ client.on('guildMemberAdd', async member => {
 
 		const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
 
-        client.channels.cache.get('957727766650961992').send({ files: [attachment] });
+        client.channels.cache.get(`${ChanWelcome}`).send({ files: [attachment] });
     } catch (error) {
         console.error(error);
     }
