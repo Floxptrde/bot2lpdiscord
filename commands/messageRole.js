@@ -1,5 +1,5 @@
 module.exports = {
-    name :"role",
+    name :"1role",
     description: "Commande réservée, envoie le message d'accueil __!role__",
     execute(message, client, coin, roleBase, MessageEmbed, ChanWelcome, ChanRegles){
         if (!message.member.permissions.has('MANAGE_GUILD')) return;
