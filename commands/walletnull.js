@@ -4,7 +4,6 @@ module.exports = {
     execute(message, client, coin, role) {
         if(!message.member.permissions.has('MANAGE_GUILD')) return;
         message.mentions.user.map(user => {
-            //console.log(rname.name);
             let coinValue = Object.values(coin.filter({id: user.id}).find('coins').value())[1];
             let botCoinValue = Object.values(coin.filter({id: `${client.user.id}`}).find('coins').value())[1];
 
