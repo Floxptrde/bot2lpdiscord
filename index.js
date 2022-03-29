@@ -14,7 +14,8 @@ const { randomInt } = require('crypto');
 // Lowdb
 const low = require("lowdb");
 const FileSync = require('lowdb/adapters/FileSync');
-const dbdb = new FileSync('db.json');
+const dbdb = new FileSync('dbmember.json');
+const dbdb2 = new FileSync('dbrole.json');
 // BD Lowdb
 const dbmember = low(dbdb);
 const dbrole = low(dbdb);
