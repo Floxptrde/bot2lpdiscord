@@ -9,12 +9,12 @@ module.exports = {
             .setDescription('__!achat @Role acheter un rôle avec vos 2LPCoins__');
             for (const price of priceBoutique){
                 exampleEmbed.addFields(
-                    { name: `Price`, value: `**${price}** 2LPCoins` }
+                    { name: `Price :`, value: `**${price}** 2LPCoins` }
                 );
                 for(const r of role) {
                     if(r.price == price) {
                         exampleEmbed.addFields(
-                            { name: `👉${r.name}`, value: `**${r.price}** 2LPCoins` }
+                            { name: `Role : `, value: `**👉${r.name}**` }
                         );
                     }
                 }
