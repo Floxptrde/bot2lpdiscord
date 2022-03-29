@@ -1,6 +1,8 @@
 const fs = require('fs');
 // Import the discord.js module
 const Discord = require('discord.js');
+const { Client, Intents, MessageAttachment, MessageEmbed } = require('discord.js');
+const Canvas = require('canvas');
 // Create an instance of a Discord client
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS", "GUILD_MESSAGE_REACTIONS"] });
 client.commands = new Discord.Collection();
@@ -11,17 +13,17 @@ const { randomInt } = require('crypto');
 const low = require("lowdb");
 const FileSync = require('lowdb/adapters/FileSync');
 const dbdb = new FileSync('db.json');
-// BD Infos Membres
+// BD Lowdb
 const db = low(dbdb);
 db.defaults({Infos_membres: []}).write();
-// BD Roles Boutique
-const dbroles = low(dbdb);
-dbroles.defaults({Roles_Boutique: []}).write();
+db.defaults({Roles_Boutique: []}).write();
 
 // Initialisation du bot
-client.once('ready', () => {
-  console.log('I am ready!');
-  //client.guilds.cache.find(guild => guild.id === '791198800327999490').channels.cache.find(channel => channel.id === '954014351205998612').message.fetch('954332574593994752');
+client.once('ready', async () => {
+    if(!db.get("Infos_membres").find({id: client.user.id}).value()){
+        db.get("Infos_membres").push({id: client.user.id, coins: 330}).write();
+    } 
+    console.log('I am ready!');
 });
 
 for(const file of commandfiles) {
@@ -41,7 +43,7 @@ client.on('message', async message => {
     try {
         let coin = db.get('Infos_membres');
         let roleBase = db.get('Roles_Boutique');
-        client.commands.get(command).execute(message, client, coin, roleBase);
+        client.commands.get(command).execute(message, client, coin, roleBase, MessageEmbed);
     } catch (error) {
         console.error(error);
         message.reply("une erreur s'est produite");
@@ -131,14 +133,42 @@ client.on('messageReactionRemove', async (reaction, user) => {
     }
 });
 
-client.on('guildMemberAdd', member => {
+client.on('guildMemberAdd', async member => {
     try { 
-        var msg = randomInt(5); messages=["Toi aussi t'en a marre du livret A", "Es-tu plutôt or physique ou numérique?", "Bienvenue sur le chemin de la richesse", "On voit que tu aimes les gros pourcentage", "Trading/crypto/actions, tu vas te régaler ici"];
-        client.channels.cache.get('791198800327999493').send(`Welcome **${member.user.username}**\n${member.user.displayAvatarURL({format:'png'})}\n${messages[msg]}`); 
+        let msg = randomInt(5); messages=["Toi aussi t'en a marre du livret A", "Es-tu plutôt or physique ou numérique?", "Bienvenue sur le chemin de la richesse", "On voit que tu aimes les gros pourcentage", "Trading/crypto/actions, tu vas te régaler ici"];
+
+        const canvas = Canvas.createCanvas(923, 518);
+		const context = canvas.getContext('2d');
+
+		const background = await Canvas.loadImage('./ImageDAccueil.jpg');
+		context.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+		context.strokeStyle = '#FFFFFF';
+		context.strokeRect(0, 0, canvas.width, canvas.height);
+
+		context.font = "50px sans-serif";
+		context.fillStyle = '#FFFFFF';
+		context.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.4);
+     
+        context.font = "35px sans-serif";
+		context.fillStyle = '#FFFFFF';
+		context.fillText(`\n${messages[msg]}`, 50, canvas.height / 1.3);
+		
+        context.beginPath();
+		context.arc(458, 150, 125, 0, Math.PI * 2, true); 
+        context.stroke();
+		context.closePath();
+		context.clip();
+
+		const avatar = await Canvas.loadImage(member.user.displayAvatarURL({ format: 'jpg' }));
+		context.drawImage(avatar, 335, 25, 250, 250);
+
+		const attachment = new MessageAttachment(canvas.toBuffer(), 'profile-image.png');
+
+        client.channels.cache.get('957727766650961992').send({ files: [attachment] });
     } catch (error) {
         console.error(error);
     }
 });
-
 
 client.login(process.env.TOKEN);

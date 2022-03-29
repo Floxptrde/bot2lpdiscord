@@ -2,7 +2,7 @@ module.exports = {
     name: "walletnull",
     description: "Commande Réservée, permet de remettre à 1 2LPCoins le wallet d'un membre __!walletnull @member__",
     execute(message, client, coin, role) {
-        if(!message.member.roles.cache.has('791199098510114837')) return;
+        if(!message.member.permissions.has('MANAGE_GUILD')) return;
         message.mentions.user.map(user => {
             //console.log(rname.name);
             let coinValue = Object.values(coin.filter({id: user.id}).find('coins').value())[1];

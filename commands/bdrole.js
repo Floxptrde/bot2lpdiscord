@@ -3,7 +3,7 @@ module.exports = {
     description: "Commande réservée, ajoute ou modifie un rôle à la boutique __!bdrole @rôle valeur__",
 
     execute(message, client, coin, roleBase) {
-        if (!message.member.roles.cache.has('791199098510114837')) return;
+        if (!message.member.permissions.has('MANAGE_GUILD')) return;
         const value = message.content.split(/ +/);
         if(isNaN(parseInt(value[2]))) return;
         if(isNaN(parseInt(value[3]))) return;

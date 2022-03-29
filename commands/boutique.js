@@ -1,14 +1,20 @@
 module.exports = {
     name: "boutique",
     description: "Affiche les rôles disponibles à l'achat __!boutique__",
-    execute(message, client, coin, role) {
-        let chaine = "";
-        for(const r of role) {
-            chaine = chaine+`👉${r.name} : **${r.price}** 2LPCoins\n\n`;
-        }
+    execute(message, client, coin, role, MessageEmbed) {
+        const exampleEmbed = new MessageEmbed()
+            .setColor('#ffde59')
+            .setTitle('Boutique')
+            .setDescription('__!achat @Role acheter un rôle avec vos 2LPCoins__');
+            for(const r of role) {
+                exampleEmbed.addFields(
+                    { name: `👉${r.name}`, value: `**${r.price}** 2LPCoins` },
+                );
+            }
+            
+        exampleEmbed
+            .setTimestamp()
 
-        message.channel.send(`
-            **Boutique**\n${chaine}__!achat @Role acheter un rôle avec vos 2LPCoins__
-        `)
+        message.reply({ embeds: [exampleEmbed] });
     }
 };

@@ -2,7 +2,7 @@ module.exports = {
     name :"role",
     description: "Commande réservée, envoie le message d'accueil __!role__",
     execute(message, client){
-        if (!message.member.roles.cache.has('791199098510114837')) return;
+        if (!message.member.permissions.has('MANAGE_GUILD')) return;
         client.channels.cache.get('798979843864657920').send(`
         Discord officiel de l'équipe 2LP
 
