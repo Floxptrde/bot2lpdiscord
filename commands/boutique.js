@@ -7,11 +7,14 @@ module.exports = {
             .setColor('#ffde59')
             .setTitle('Boutique')
             .setDescription('__!achat @Role acheter un rôle avec vos 2LPCoins__');
-        
-            for(let r of role) {
-                exampleEmbed.addFields(
-                    { name: `Role : `, value: `**👉${r.name}**` }
-                );
+            for(const prix of priceBoutique) {
+                for(const r of role) {
+                    if(prix == r.prics) {
+                        exampleEmbed.addFields(
+                            { name: `Role : `, value: `**👉${r.name}**` }
+                        );
+                    }
+                }
             }
         exampleEmbed.setTimestamp();
 
