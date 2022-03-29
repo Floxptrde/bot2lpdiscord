@@ -16,11 +16,14 @@ const low = require("lowdb");
 const FileSync = require('lowdb/adapters/FileSync');
 const dbdb = new FileSync('dbmember.json');
 const dbdb2 = new FileSync('dbrole.json');
+const dbdb3 = new FileSync('dbphrases.json');
 // BD Lowdb
 const dbmember = low(dbdb);
 const dbrole = low(dbdb2);
+const dbphrase = low(dbdb3);
 dbmember.defaults({Infos_membres: []}).write();
 dbrole.defaults({Roles_Boutique: []}).write();
+dbphrase.defaults({Phrases: []}).write();
 
 // Initialisation du bot
 client.once('ready', async () => {
@@ -139,8 +142,7 @@ client.on('messageReactionRemove', async (reaction, user) => {
 
 client.on('guildMemberAdd', async member => {
     try { 
-        let msg = randomInt(5); messages=["Toi aussi t'en a marre du livret A", "Es-tu plutôt or physique ou numérique?", "Bienvenue sur le chemin de la richesse", "On voit que tu aimes les gros pourcentage", "Trading/crypto/actions, tu vas te régaler ici"];
-
+        let msg = randomInt(5);
         const canvas = Canvas.createCanvas(923, 518);
 		const context = canvas.getContext('2d');
 
@@ -156,7 +158,7 @@ client.on('guildMemberAdd', async member => {
      
         context.font = "35px sans-serif";
 		context.fillStyle = '#FFFFFF';
-		context.fillText(`\n${messages[msg]}`, 50, canvas.height / 1.3);
+		context.fillText(`\n${Object.values(dbmember.get("Phrases").filter({id: client.user.id}).find('phrase').value())[msg]}`, 50, canvas.height / 1.3);
 		
         context.beginPath();
 		context.arc(458, 150, 125, 0, Math.PI * 2, true); 
