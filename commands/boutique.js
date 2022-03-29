@@ -9,7 +9,7 @@ module.exports = {
             .setDescription('__!achat @Role acheter un rôle avec vos 2LPCoins__');
             for(const prix of priceBoutique) {
                 for(const r of role) {
-                    if(prix == r.prics) {
+                    if(parseInt(prix) == r.prics) {
                         exampleEmbed.addFields(
                             { name: `Role : `, value: `**👉${r.name}**` }
                         );
