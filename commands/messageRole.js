@@ -1,9 +1,9 @@
 module.exports = {
     name :"role",
     description: "Commande réservée, envoie le message d'accueil __!role__",
-    execute(message, client){
+    execute(message, client, coin, roleBase, MessageEmbed, ChanWelcome, ChanRegles){
         if (!message.member.permissions.has('MANAGE_GUILD')) return;
-        client.channels.cache.get('798979843864657920').send(`
+        client.channels.cache.get(ChanRegles).send(`
         Discord officiel de l'équipe 2LP
 
 Vous y trouverez :
