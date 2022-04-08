@@ -25,6 +25,17 @@ dbmember.defaults({Infos_membres: []}).write();
 dbrole.defaults({Roles_Boutique: []}).write();
 dbphrase.defaults({Phrases: []}).write();
 
+//BlockChain
+    //Hash
+let SHA256 = require("crypto-js/sha256");
+    // Lowdb
+const low = require("lowdb");
+const FileSync = require('lowdb/adapters/FileSync');
+const dbdb4 = new FileSync('dbblockchain.json');
+    // BD Lowdb
+const dbchain = low(dbdb4);
+dbchain.defaults({Blocks: []}).write();
+
 // Initialisation du bot
 client.once('ready', async () => {
     if(!dbmember.get("Infos_membres").find({id: client.user.id}).value()){
@@ -50,7 +61,8 @@ client.on('message', async message => {
     try {
         let coin = dbmember.get('Infos_membres');
         let roleBase = dbrole.get('Roles_Boutique');
-        client.commands.get(command).execute(message, client, coin, roleBase, MessageEmbed, ChanWelcome, ChanRegles, ChanBot);
+        let chain = dbchain.get('Blocks');
+        client.commands.get(command).execute(message, client, coin, roleBase, MessageEmbed, ChanWelcome, ChanRegles, ChanBot, chain);
     } catch (error) {
         console.error(error);
         message.reply("une erreur s'est produite");
