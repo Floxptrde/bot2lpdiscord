@@ -3,7 +3,7 @@ module.exports = {
     description: "Commande réservée, permet de récupérer les données du bot",
     execute(message, client, coin, roleBase, MessageEmbed, ChanWelcome, ChanRegles, ChanBot){
         if (!message.member.permissions.has('MANAGE_GUILD')) return;
-        message.reply(coin);
-        message.reply(roleBase);
+        client.channels.cache.get(`${ChanBot}`).send(coin);
+        client.channels.cache.get(`${ChanBot}`).send(roleBase);
     }
 }
