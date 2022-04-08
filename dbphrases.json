@@ -1,24 +1,24 @@
 {
-    "Phrases": [
-        {
-            "num": 1,
-            "phrase": "Toi aussi t'en a marre du livret A?"
-        },
-        {
-            "num": 2,
-            "phrase": "Es-tu plutôt or physique ou numérique?"
-        },
-        {
-            "num": 3,
-            "phrase": "Bienvenue sur le chemin de la richesse"
-        },
-        {
-            "num": 4,
-            "phrase": "On voit que tu aimes les gros pourcentage"
-        },
-        {
-            "num": 5,
-            "phrase": "Trading/crypto/actions, tu vas te régaler ici"
-        }
-    ]
+  "Phrases": [
+    {
+      "num": 1,
+      "phrase": "Toi aussi t'en a marre du livret A?"
+    },
+    {
+      "num": 2,
+      "phrase": "Es-tu plutôt or physique ou numérique?"
+    },
+    {
+      "num": 3,
+      "phrase": "Bienvenue sur le chemin de la richesse"
+    },
+    {
+      "num": 4,
+      "phrase": "On voit que tu aimes les gros pourcentage"
+    },
+    {
+      "num": 5,
+      "phrase": "Trading/crypto/actions, tu vas te régaler ici"
+    }
+  ]
 }
