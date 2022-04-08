@@ -29,8 +29,6 @@ dbphrase.defaults({Phrases: []}).write();
     //Hash
 let SHA256 = require("crypto-js/sha256");
     // Lowdb
-const low = require("lowdb");
-const FileSync = require('lowdb/adapters/FileSync');
 const dbdb4 = new FileSync('dbblockchain.json');
     // BD Lowdb
 const dbchain = low(dbdb4);
