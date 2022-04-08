@@ -9,7 +9,7 @@ const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES", "GUILD
 client.commands = new Discord.Collection();
 const commandfiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 // Imports
-const {prefix, token, ChanWelcome, ChanRegles} = require('./config.json');
+const {prefix, token, ChanWelcome, ChanRegles, ChanBot} = require('./config.json');
 const { randomInt } = require('crypto');
 // Lowdb
 const low = require("lowdb");
@@ -50,10 +50,11 @@ client.on('message', async message => {
     try {
         let coin = dbmember.get('Infos_membres');
         let roleBase = dbrole.get('Roles_Boutique');
-        client.commands.get(command).execute(message, client, coin, roleBase, MessageEmbed, ChanWelcome, ChanRegles);
+        client.commands.get(command).execute(message, client, coin, roleBase, MessageEmbed, ChanWelcome, ChanRegles, ChanBot);
     } catch (error) {
         console.error(error);
         message.reply("une erreur s'est produite");
+        message.reply(error);
     }
 });
 
